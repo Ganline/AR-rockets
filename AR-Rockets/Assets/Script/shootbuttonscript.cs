@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class shootbuttonscript : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject Rocket;
+    float force = 1000f;
 
-    // Update is called once per frame
-    void Update()
+    public void lauchButton() //Shootボタンが押されたら
     {
-        
+        GameObject GoRocket = Instantiate(Rocket, transform.position, transform.rotation) as GameObject;
+        GoRocket.GetComponent<shootscript>().Shoot(GoRocket.transform.forward * force);
+
     }
 }
