@@ -10,8 +10,10 @@ public class shootbuttonscript : MonoBehaviour
 
     public void lauchButton() //Shootボタンが押されたら
     {
-        GameObject GoRocket = Instantiate(Rocket, transform.position, transform.rotation) as GameObject;
+        GameObject GoRocket = Instantiate(Rocket, transform.position, Quaternion.Euler(0,0,0)) as GameObject;
         GoRocket.GetComponent<shootscript>().Shoot(GoRocket.transform.forward * force);
-
+    
     }
 }
+
+
