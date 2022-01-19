@@ -10,7 +10,10 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] GameObject redCube;//生成するオブジェクト
     private ARRaycastManager arRaycastManager;
     private List<ARRaycastHit> hits = new List<ARRaycastHit>();
-     
+
+    public GameObject Rocket;
+    float force = 1000f;
+
 
     void Start()
     {
@@ -27,7 +30,9 @@ public class SpawnManager : MonoBehaviour
                 if (arRaycastManager.Raycast(touch.position, hits, TrackableType.PlaneWithinPolygon))
                 {
                     Pose hitPose = hits[0].pose;　　//RayとARPlaneが衝突しところのPose
-                    Instantiate(redCube, hitPose.position, hitPose.rotation);　　//オブジェクトの生成
+                    //Instantiate(redCube, hitPose.position, hitPose.rotation);　　//オブジェクトの生成
+                    GameObject GoRocket = Instantiate(Rocket, transform.position, Quaternion.Euler(0, 0, 0)) as GameObject;
+                    GoRocket.GetComponent<shootscript>().Shoot(GoRocket.transform.forward * force);
                 }
             }
         }
