@@ -27,7 +27,6 @@ public class shootbuttonscript : MonoBehaviour
 
         GameObject GoRocket = Instantiate(Rocket, new Vector3(x, y, z), Quaternion.Euler(0,0,0)) as GameObject;
         GoRocket.GetComponent<shootscript>().Shoot(GoRocket.transform.forward * force);
-    
     }
 }
 
