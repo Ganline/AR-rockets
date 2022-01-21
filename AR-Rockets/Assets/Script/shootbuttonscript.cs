@@ -8,9 +8,24 @@ public class shootbuttonscript : MonoBehaviour
     public GameObject Rocket;
     float force = 1000f;
 
+    [SerializeField]
+    [Tooltip("生成する範囲A")]
+    private Transform rangeA;
+    [SerializeField]
+    [Tooltip("生成する範囲B")]
+    private Transform rangeB;
+
+
     public void lauchButton() //Shootボタンが押されたら
     {
-        GameObject GoRocket = Instantiate(Rocket, transform.position, Quaternion.Euler(0,0,0)) as GameObject;
+        // rangeAとrangeBのx座標の範囲内でランダムな数値を作成
+        float x = Random.Range(rangeA.position.x, rangeB.position.x);
+        // rangeAとrangeBのy座標の範囲内でランダムな数値を作成
+        float y = Random.Range(rangeA.position.y, rangeB.position.y);
+        // rangeAとrangeBのz座標の範囲内でランダムな数値を作成
+        float z = 0;
+
+        GameObject GoRocket = Instantiate(Rocket, new Vector3(x, y, z), Quaternion.Euler(0,0,0)) as GameObject;
         GoRocket.GetComponent<shootscript>().Shoot(GoRocket.transform.forward * force);
     
     }
