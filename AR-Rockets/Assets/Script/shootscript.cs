@@ -9,7 +9,7 @@ public class shootscript : MonoBehaviour
     {
 
         GetComponent<Rigidbody>().AddForce(dir);
-        Destroy(gameObject, 5);
+        Destroy(gameObject, 7);
     }
 
 }
