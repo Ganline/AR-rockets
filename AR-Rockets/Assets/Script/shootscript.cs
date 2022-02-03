@@ -11,7 +11,7 @@ public class shootscript : MonoBehaviour
     {
 
         GetComponent<Rigidbody>().AddForce(dir);
-        Destroy(gameObject, 3);
+        Destroy(gameObject, 2);
     }
 
     public void OnDestroy()
