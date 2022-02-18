@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class shootbuttonclickscript : MonoBehaviour
+public class StraitRocketButton : MonoBehaviour
 {
-    // Start is called before the first frame update
     public GameObject Rocket;
 
 
@@ -12,7 +11,7 @@ public class shootbuttonclickscript : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            GameObject GoRocket = Instantiate(Rocket, new Vector3(0, 0, 0), Quaternion.Euler(0, 0, 0)) as GameObject;
+            GameObject GoRocket = Instantiate(Rocket, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
             //GoRocket.GetComponent<shootscript>().Shoot(GoRocket.transform.forward * force);
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             Vector3 worldDir = ray.direction;
