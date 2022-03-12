@@ -19,14 +19,14 @@ public class shootbuttonscript : MonoBehaviour
     public void lauchButton() //Shootボタンが押されたら
     {
         // rangeAとrangeBのx座標の範囲内でランダムな数値を作成
-        float x = Random.Range(rangeA.position.x, rangeB.position.x);
+        float x = Random.Range(rangeA.localPosition.x, rangeB.localPosition.x);
         // rangeAとrangeBのy座標の範囲内でランダムな数値を作成
-        float y = Random.Range(rangeA.position.y, rangeB.position.y);
+        float y = Random.Range(rangeA.localPosition.y, rangeB.localPosition.y);
         // rangeAとrangeBのz座標の範囲内でランダムな数値を作成
         float z = 0;
 
-        GameObject GoRocket = Instantiate(Rocket, new Vector3(x, y, z), Quaternion.Euler(0,0,0)) as GameObject;
-        GoRocket.GetComponent<shootscript>().Shoot(GoRocket.transform.forward * force);
+        GameObject GoRocket = Instantiate(Rocket, new Vector3(x, y, z), Quaternion.Euler(x,y,z)) as GameObject;
+        GoRocket.GetComponent<shootscript>().Shoot(Camera.main.transform.forward * force);
     }
 }
 

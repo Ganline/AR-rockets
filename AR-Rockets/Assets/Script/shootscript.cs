@@ -16,7 +16,7 @@ public class shootscript : MonoBehaviour
 
     public void OnDestroy()
     {
-        Vector3 set = this.gameObject.transform.position;
+        Vector3 set = this.gameObject.transform.localPosition;
         Instantiate(Explosion, set, Quaternion.identity);
     }
 
