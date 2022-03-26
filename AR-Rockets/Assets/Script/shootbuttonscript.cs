@@ -6,7 +6,7 @@ public class shootbuttonscript : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject Rocket;
-    float force = 1000f;
+    float force = 1600f;
 
     [SerializeField]
     [Tooltip("生成する範囲A")]
