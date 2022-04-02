@@ -25,14 +25,14 @@ public class unityAds　: MonoBehaviour
 
 
 
-    
+
     IEnumerator showBanner()
     {
         while (!Advertisement.isInitialized)
         {
             yield return new WaitForSeconds(0.1f); // 0.1秒後に広告表示
         }
-        Advertisement.Banner.SetPosition(BannerPosition.BOTTOM_CENTER); //バナーを上部中央にセット
+        Advertisement.Banner.SetPosition(BannerPosition.BOTTOM_CENTER); //バナーを下部中央にセット
         Advertisement.Banner.Show(bannerId);
     }
 }
